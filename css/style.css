@@ -1,0 +1,146 @@
+/* use 미생 font */
+@font-face {
+    font-family: SDMisaeng;
+    src: local(SDMisaeng), url(SDMisaeng.ttf);
+    font-style: normal;
+    font-weight: normal;
+}
+#k-map {
+    position: relative;
+    cursor: default;
+    font-family: SDMisaeng, dotum, "Lucida Grande", sans-serif;
+    font-size: 32px;
+    border: #303030 solid 1px;
+    border-radius: 8px;
+    text-align: center;
+}
+#k-map h1 {
+    margin: 1em 0 0.2em 0;
+}
+#k-map.dark {
+    border: none;
+    color: #ffffff;
+    background: #303030;
+}
+/* text div */
+#k-map .meta {
+    display: inline-block;
+    position: relative;
+    width: 40%;
+}
+#k-map .display {
+    display: block;
+    width: 100%;
+}
+/* svg */
+#k-map .map-container {
+    width: 49%;
+    padding: 0 0 49% 0;
+    margin: 15px;
+    vertical-align: top;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+}
+#k-map .svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#k-map .ocean {
+    fill: #ffffff;
+}
+#k-map.dark .ocean {
+    fill: #303030;
+}
+#k-map .area {
+    cursor: pointer;
+    stroke: #ccc;
+    stroke-width: 2px;
+}
+#k-map.dark .area {
+    stroke: #ffffff;
+}
+#k-map .back-button {
+    cursor: pointer;
+    pointer-events: all;
+    fill: none;
+    stroke: #303030;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+#k-map.dark .back-button {
+    stroke: #ffffff;
+}
+#k-map .back-button text {
+    stroke: none;
+    fill: #303030;
+}
+#k-map.dark .back-button text {
+    fill: #ffffff;
+}
+/* tooltip */
+#k-map #tooltip {
+    font-size: 0.8em;
+    display: block;
+    position: absolute;
+    color: #ffffff;
+    background-color: rgba(49, 57, 37, 0.8);
+    padding: 2px;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+#k-map.dark #tooltip {
+    color: #292929;
+    background-color: rgba(215, 215, 215, 0.8);
+}
+/* theme toggle */
+#k-map .widget {
+    margin: 0 0 12px 0;
+    font-size: 16px;
+}
+#k-map .switch {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 12px;
+}
+#k-map .switch input {
+    display: none;
+}
+#k-map .check-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+#k-map .check-slider:before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+#k-map input:checked + .check-slider {
+    background-color: #2196f3;
+}
+#k-map input:focus + .check-slider {
+    box-shadow: 0 0 1px #2196f3;
+}
+#k-map input:checked + .check-slider:before {
+    -webkit-transform: translateX(8px);
+    -ms-transform: translateX(8px);
+    transform: translateX(8px);
+}
