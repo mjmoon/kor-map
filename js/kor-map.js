@@ -1,6 +1,6 @@
 var widthFull = 800,
     aspectRatio = 1,
-    mapMargin = {left: 20, right: 20, top: 20, bottom: 20},
+    mapMargin = {left: 0, right: 0, top: 0, bottom: 0},
     defOpacity = 0.5,
     defStrokewidth = 2;
 var ctprvnDiv = d3.select("#ctprvn-nm"),
@@ -27,7 +27,9 @@ var mainSvg = d3.select("#main-map")
     initScale = 1;
 
 // Select the tooltip div
-var tooltip = d3.select("#tooltip")
+var tooltip = d3.select("body")
+        .append("div")
+        .attr("id", "tooltip")
         .style("opacity", 0);
 
 // Back button
@@ -160,8 +162,8 @@ d3.json('data/plot/kor_admin_1.topojson').then(function(data1){
         }
         tooltip.html(tooltipText);
         tooltip
-            .style("left", (d3.mouse(this)[0]) + "px")
-            .style("top", (d3.mouse(this)[1] - 28) + "px")
+            .style("left", (d3.event.pageX) + "px")
+            .style("top", (d3.event.pageY - 40) + "px")
             .raise()
             .transition()
             .duration(200)
@@ -232,10 +234,12 @@ function filterGeo(data, filter) {
 function toggleTheme() {
     if(d3.select("#k-map").classed("dark")){
         d3.select("#k-map").classed("dark", false);
+        d3.select("#tooltip").classed("dark", false);
         defOpacity = 0.5;
         map.selectAll(".area").style("fill-opacity", defOpacity);
     } else {
         d3.select("#k-map").classed("dark", true);
+        d3.select("#tooltip").classed("dark", true);
         defOpacity = 0.9;
         map.selectAll(".area").style("fill-opacity", defOpacity);
     }
