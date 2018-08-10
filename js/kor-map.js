@@ -1,6 +1,6 @@
 var widthFull = 800,
     aspectRatio = 1,
-    mapMargin = {left: 0, right: 0, top: 0, bottom: 0},
+    mapMargin = {left: 10, right: 10, top: 10, bottom: 10},
     defOpacity = 0.5,
     defStrokewidth = 2;
 var ctprvnDiv = d3.select("#ctprvn-nm"),
@@ -19,13 +19,18 @@ var mainSvg = d3.select("#main-map")
         .attr("height", aspectRatio*widthFull)
         .attr("class", "ocean"),
     color = d3.scaleOrdinal(d3.schemeCategory10);
-    currDim = d3.select(".svg-content-responsive").node().getBoundingClientRect(),
     zoom = d3.zoom()
        .scaleExtent([1, 5])
        .translateExtent([[0,0],[widthFull, widthFull*aspectRatio]]),
     currTransform = [0,0],
     initScale = 1;
 
+// get containing box dimension
+function getCurrDim() {
+    return d3.select(".map-container")
+        .node()
+        .getBoundingClientRect();
+}
 // Select the tooltip div
 var tooltip = d3.select("body")
         .append("div")
@@ -54,6 +59,7 @@ d3.json('data/plot/kor_admin_1.topojson').then(function(data1){
 
     // reusuable draw function
     function redraw(selected) {
+        var currDim = getCurrDim();
         // hide tooltip
         tooltip.transition()
             .duration(200)
@@ -200,7 +206,6 @@ d3.json('data/plot/kor_admin_1.topojson').then(function(data1){
 
     // resize on window
     window.addEventListener("resize", function(){
-        currDim = d3.select(".svg-content-responsive").node().getBoundingClientRect();
         switch(currRegion.length){
             case 0:
                 redraw(lvl1);
