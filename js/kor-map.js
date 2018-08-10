@@ -33,7 +33,7 @@ var tooltip = d3.select("#tooltip")
 // Back button
 var back = mainSvg.append("g")
         .classed("back-button", true)
-        .attr("transform", "translate(5,5)")
+        .attr("transform", "translate(20,20)")
         .style("opacity", 0);
 back.append("polyline")
     .attr("points", "0,18 9,0 18,18");
