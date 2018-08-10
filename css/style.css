@@ -1,21 +1,12 @@
-/* use 미생 font */
-@font-face {
-    font-family: SDMisaeng;
-    src: local(SDMisaeng), url(SDMisaeng.ttf);
-    font-style: normal;
-    font-weight: normal;
-}
 #k-map {
+    height: 100vh;
     position: relative;
     cursor: default;
     font-family: SDMisaeng, dotum, "Lucida Grande", sans-serif;
-    font-size: 32px;
-    border: #303030 solid 1px;
-    border-radius: 8px;
+    font-size: 24px;
     text-align: center;
-}
-#k-map h1 {
-    margin: 1em 0 0.2em 0;
+    margin: 0;
+    line-height: 1.2em;
 }
 #k-map.dark {
     border: none;
@@ -26,18 +17,28 @@
 #k-map .meta {
     display: inline-block;
     position: relative;
-    width: 40%;
+}
+#k-map h1,
+#k-map h2 {
+    font-family: SDMisaeng, dotum, "Lucida Grande", sans-serif;
+    margin: 1em 0 0.2em 0;
+    line-height: 0.8em;
+}
+#k-map.dark h1,
+#k-map.dark h2 {
+    color: #ffffff;
 }
 #k-map .display {
     display: block;
+    font-size: 1.5em;
     width: 100%;
+    padding-bottom: 0.7em;
 }
 /* svg */
 #k-map .map-container {
-    width: 49%;
-    padding: 0 0 49% 0;
-    margin: 15px;
-    vertical-align: top;
+    width: 100%;
+    padding: 0 0 100% 0;
+    margin: 0;
     overflow: hidden;
     display: inline-block;
     position: relative;
@@ -47,6 +48,8 @@
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
 }
 #k-map .ocean {
     fill: #ffffff;
@@ -98,15 +101,23 @@
     background-color: rgba(215, 215, 215, 0.8);
 }
 /* theme toggle */
+#k-map label {
+    display: inline-block;
+    line-height: 1em;
+}
+#k-map.dark label {
+    color: #ffffff;
+}
 #k-map .widget {
-    margin: 0 0 12px 0;
-    font-size: 16px;
+    padding: 16px 0 20px 0;
+    font-size: 20px;
 }
 #k-map .switch {
     position: relative;
     display: inline-block;
-    width: 20px;
-    height: 12px;
+    width: 28px;
+    height: 16px;
+    margin: 0;
 }
 #k-map .switch input {
     display: none;
@@ -125,10 +136,10 @@
 #k-map .check-slider:before {
     position: absolute;
     content: "";
-    height: 8px;
-    width: 8px;
+    height: 12px;
+    width: 12px;
     left: 2px;
-    bottom: 2px;
+    bottom: 2.25px;
     background-color: white;
     -webkit-transition: 0.4s;
     transition: 0.4s;
@@ -140,7 +151,7 @@
     box-shadow: 0 0 1px #2196f3;
 }
 #k-map input:checked + .check-slider:before {
-    -webkit-transform: translateX(8px);
-    -ms-transform: translateX(8px);
-    transform: translateX(8px);
+    -webkit-transform: translateX(12px);
+    -ms-transform: translateX(12px);
+    transform: translateX(12px);
 }

@@ -5,28 +5,40 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="shortcut icon" href="favicon.ico">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
     <title>대한민국 법정구역 지도</title>
 </head>
 
 <body>
-    <div id="k-map" class="">
-        <div id="main-map" class="map-container">
-            <div id="tooltip">
+    <div id="k-map" class="row">
+        <div class="6u 12u$(small)">
+            <div id="main-map" class="map-container">
+                <div id="tooltip">
+                </div>
             </div>
         </div>
-        <div class="meta">
-            <h1>대한민국 법정구역 지도<br/><sub>Map of Republic of Korea</sub></h1>
-            <div class="widget">
-                <label class="switch">
-                    <input type="checkbox" name="theme-toggle" id="theme-toggle" onclick="toggleTheme()">
-                    <span class="check-slider"></span>
-                </label>
-                <label for="theme-toggle" class="switch-label">Dark Theme</label>
+        <div class="6u$ 12u$(small)">
+            <div class="meta">
+                <div>
+                    <h1>대한민국 법정구역 지도</h1>
+                    <h2>Map of Republic of Korea</h2>
+                </div>
+                <div class="widget">
+                    <label class="switch">
+                        <input type="checkbox" name="theme-toggle" id="theme-toggle" onclick="toggleTheme()">
+                        <span class="check-slider"></span>
+                    </label>
+                    <label for="theme-toggle" class="switch-label">Dark Theme</label>
+                </div>
+                <div id="ctprvn-nm" class="display"></div>
+                <div id="sig-nm" class="display"></div>
+                <div id="emd-nm" class="display"></div>
             </div>
-            <div id="ctprvn-nm" class="display"></div>
-            <div id="sig-nm" class="display"></div>
-            <div id="emd-nm" class="display"></div>
         </div>
     </div>
     <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
