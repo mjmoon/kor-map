@@ -160,8 +160,9 @@ d3.json('data/plot/kor_admin_1.topojson').then(function(data1){
         }
         tooltip.html(tooltipText);
         tooltip
-            .style("left", (d3.event.pageX) + "px")
-            .style("top", (d3.event.pageY - 28) + "px")
+            .style("left", (d3.mouse(this)[0]) + "px")
+            .style("top", (d3.mouse(this)[1] - 28) + "px")
+            .raise()
             .transition()
             .duration(200)
             .style("opacity", 0.9);
