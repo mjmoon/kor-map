@@ -115,13 +115,20 @@ d3.json('data/plot/kor_admin_1.topojson').then(function(data1){
     function clickHandler(d) {
         switch(currRegion.length){
             case 0:
-                back.style("opacity", defOpacity);
-                backText.text("전국지도");
                 currRegion = [{key: "LVL_1_EN", value: d.properties.LVL_1_EN}];
-                redraw(filterGeo(lvl2, currRegion));
-                break;
+                backText.text("전국지도");
+                back.style("opacity", defOpacity);
+                if(d.properties.LVL_1_EN=="Sejong"){
+                    clickHandler(filterGeo(lvl2, currRegion).features[0]);
+                    break;
+                } else {
+                    redraw(filterGeo(lvl2, currRegion));
+                    break;
+                }
             case 1:
-                backText.text(d.properties.LVL_1_KR + " 지도");
+                if(d.properties.LVL_1_EN!="Sejong"){
+                    backText.text(d.properties.LVL_1_KR + " 지도");
+                }
                 currRegion = [
                     {key: "LVL_1_EN", value: d.properties.LVL_1_EN},
                     {key: "LVL_2_EN", value: d.properties.LVL_2_EN}
@@ -137,11 +144,16 @@ d3.json('data/plot/kor_admin_1.topojson').then(function(data1){
     function clickoutHandler() {
         switch(currRegion.length){
             case 2:
-                backText.text("전국지도");
-                sigDiv.html("");
                 currRegion.pop();
-                redraw(filterGeo(lvl2, currRegion));
-                break;
+                if(currRegion[0].value=="Sejong"){
+                    clickoutHandler();
+                    break;
+                } else {
+                    backText.text("전국지도");
+                    sigDiv.html("");
+                    redraw(filterGeo(lvl2, currRegion));
+                    break;
+                }
             case 1:
                 back.style("opacity", 0);
                 ctprvnDiv.html("");
