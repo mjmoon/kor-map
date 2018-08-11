@@ -52,8 +52,7 @@
     /* height: 100%; */
 }
 #k-map .ocean {
-    /* fill: #ffffff; */
-    fill: #303030;
+    fill: #ffffff;
 }
 #k-map.dark .ocean {
     fill: #303030;
