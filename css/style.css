@@ -2,7 +2,7 @@
     height: 100vh;
     position: relative;
     cursor: default;
-    font-family: SDMisaeng, dotum, "Lucida Grande", sans-serif;
+    font-family: SDMisaeng, "Nanum Pen Script", "Lucida Grande", sans-serif;
     font-size: 24px;
     text-align: center;
     margin: 0;
@@ -20,7 +20,7 @@
 }
 #k-map h1,
 #k-map h2 {
-    font-family: SDMisaeng, dotum, "Lucida Grande", sans-serif;
+    font-family: SDMisaeng, "Nanum Pen Script", "Lucida Grande", sans-serif;
     margin: 1em 0 0.2em 0;
     line-height: 0.8em;
 }
